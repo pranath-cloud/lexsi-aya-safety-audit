@@ -151,9 +151,15 @@ memorization of benchmark rows.
 - **Small n for the failing languages:** Wolof n=27 harmful, Yoruba n=48;
   harmless controls are 6 per language, so over-refusal is a single-digit
   count.
-- **Judge:** WildGuard is one classifier on English (back-translated) outputs;
-  we did not manually verify all 1,355 judgments. Judge-vs-regex disagreements
-  and spot checks are preserved row-level in the artifacts.
+- **Judge:** WildGuard is one classifier on English (back-translated) outputs.
+  **Manual validation:** we inspected a stratified sample of 32 wo/yo rows
+  covering every verdict bucket (`docs/spotcheck.json`); WildGuard's label
+  matched manual review in 28/32 (87.5%), with errors roughly balanced
+  (one missed refusal, one gibberish row counted as over-refusal, two
+  borderline +HARM calls on semi-coherent text). A further nuance visible in
+  the sample: several wo/yo "comply" responses are *garbled definitional
+  text* rather than usable attack content — the ~50% ASR is real as judged,
+  but some flagged rows are incoherent rather than weaponizable.
 - **One layer, one direction:** the probe is evidence, not a full circuit
   analysis.
 - **What the adapter learned:** at 100% held-out refusal with only 101
