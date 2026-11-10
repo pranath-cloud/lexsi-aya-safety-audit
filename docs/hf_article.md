@@ -67,7 +67,7 @@ isn't wired to the harm signal?
 | **Yoruba** | 48 | **22.9** | **50.0** |
 | **Wolof** | 27 | **11.1** | **48.1** |
 
-![Per-language refusal vs ASR](../figures/fig1_safety_landscape.png)
+![Per-language refusal vs ASR](https://huggingface.co/datasets/pran4th/lexsi-wolof-ckpt/resolve/main/figures/fig1_safety_landscape.png)
 
 **The key observation:** the failure is *not* a smooth function of resource
 tier. Khmer and Hausa are comparably under-resourced yet retain 75–88%
@@ -133,7 +133,7 @@ trained a small adapter to *be* the missing pathway:
 | harmless, +adapter | wo | 6 | over-refusal 0.0 | — |
 | harmless, +adapter | yo | 6 | over-refusal 16.7 (1/6) | — |
 
-![Repair before/after](../figures/fig2_repair_before_after.png)
+![Repair before/after](https://huggingface.co/datasets/pran4th/lexsi-wolof-ckpt/resolve/main/figures/fig2_repair_before_after.png)
 
 The held-out arm is the important one: identical prompts, base vs adapted,
 with the adapter disabled/enabled via `PeftModel.disable_adapter()`. The
@@ -196,18 +196,23 @@ python scripts/06_repair_lora.py eval  # held-out before/after eval
 
 ## 8. Artifacts
 
-| Artifact | Where |
+All under `huggingface.co/datasets/pran4th/lexsi-wolof-ckpt` unless noted.
+
+| Artifact | File |
 |---|---|
-| Benchmark (1,355 rows, translations + chrF) | `pran4th/lexsi-wolof-ckpt` → `benchmark.jsonl` |
-| All model responses | `responses_base.jsonl` |
+| Benchmark (1,355 rows, translations + chrF) | `benchmark.jsonl` |
+| All model responses | `responses_base.jsonl` (+ `shards/`) |
 | WildGuard judgments (row-level) | `scored_final.jsonl` |
 | Probe scores + metadata | `direction_scores.jsonl`, `probe_meta.json` |
 | Per-language metrics | `metrics.csv` |
 | Steering repair outputs | `repair_results.jsonl` |
 | LoRA eval (gen + back-translation + judge) | `repair_eval.jsonl` |
-| Training set | `lora_train.json` |
-| **LoRA adapter** | `lora_wo_yo/` |
-| Code | github.com/pranath-cloud/lexsi-aya-safety-audit |
+| **LoRA adapter** | `huggingface.co/pran4th/tiny-aya-wolof-yoruba-safety-lora` (also `lora_wo_yo/` in the dataset repo) |
+| Code + figures + article source | github.com/pranath-cloud/lexsi-aya-safety-audit |
+
+Training-set construction is in `scripts/06_repair_lora.py` (the `train`
+phase builds the 101 translated-refusal examples deterministically from the
+released benchmark rows).
 
 ## 9. Takeaways
 

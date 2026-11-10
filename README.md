@@ -47,6 +47,12 @@ examples, 2 epochs:
 | in-sample + adapter | yo | 95.8 | 0.0 |
 | harmless + adapter | wo/yo | over-refusal 0% / 16.7% (1/6) | — |
 
+## Artifacts
+
+- **LoRA adapter:** `huggingface.co/pran4th/tiny-aya-wolof-yoruba-safety-lora`
+- **All data/eval files:** `huggingface.co/datasets/pran4th/lexsi-wolof-ckpt`
+- **Article draft:** `docs/hf_article.md` · **Manual validation:** `docs/spotcheck.json`
+
 ## The three failure mechanisms (what the probe distinguishes)
 
 | Gap | Signature | Repair |
