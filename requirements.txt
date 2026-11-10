@@ -1,0 +1,9 @@
+torch
+transformers
+datasets
+accelerate
+sentencepiece
+pandas
+sacrebleu
+huggingface_hub
+tqdm

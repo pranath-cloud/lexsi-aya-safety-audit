@@ -1,0 +1,11 @@
+.venv/
+vendor/
+data/
+artifacts/
+kaggle/dataset/
+kaggle/out/
+__pycache__/
+*.pt
+*.bin
+*.safetensors
+.env

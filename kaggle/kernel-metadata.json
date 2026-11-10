@@ -1,0 +1,14 @@
+{
+ "id": "pran4th/lexsi-aya-audit",
+ "title": "lexsi-aya-audit",
+ "code_file": "kernel.ipynb",
+ "language": "python",
+ "kernel_type": "notebook",
+ "is_private": true,
+ "enable_gpu": true,
+ "enable_internet": true,
+ "dataset_sources": [],
+ "competition_sources": [],
+ "kernel_sources": [],
+ "category_ids": []
+}
